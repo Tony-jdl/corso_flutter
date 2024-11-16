@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'NotApp'),
     );
   }
 }
@@ -81,10 +82,26 @@ class _MyHomePageState extends State<MyHomePage> {
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.redAccent, //Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        centerTitle: true,
+        // Lista di icone
+        actions: [
+          const Icon(Icons.note_alt_outlined),
+          IconButton(onPressed: () => print('IconButton: timeline'), icon: const Icon(Icons.timeline))
+        ],
+        // Colore del font
+        foregroundColor: Colors.white,
+        systemOverlayStyle: SystemUiOverlayStyle.light,
+        // Ombreggiatura
+        elevation: 50,
+        shadowColor: Colors.grey,
+        // Altezza Navbar
+        toolbarHeight: 60,
+        // Opacità testo
+        toolbarOpacity: 0.5,
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
