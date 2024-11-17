@@ -82,7 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor: Colors.redAccent, //Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor:
+            Colors.redAccent, //Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
@@ -90,7 +91,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // Lista di icone
         actions: [
           const Icon(Icons.note_alt_outlined),
-          IconButton(onPressed: () => print('IconButton: timeline'), icon: const Icon(Icons.timeline))
+          IconButton(
+              onPressed: () => print('IconButton: timeline'),
+              icon: const Icon(Icons.timeline))
         ],
         // Colore del font
         foregroundColor: Colors.white,
@@ -124,6 +127,28 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
+              style: TextStyle(
+                fontFamily: 'Climate_Crisis',
+                // Colore del testo
+                color: Colors.redAccent,
+                // sfondo del font
+                backgroundColor: Colors.blueGrey,
+                // Spessore del font
+                fontWeight: FontWeight.w400,
+                  // Altezza font
+                  fontSize: 30,
+                // Ombre
+                shadows: [
+                  Shadow(
+                    // Spostamento dell'ombra
+                    offset: Offset(10.0, 10.0),
+                    // sfocatura
+                    blurRadius: 3.0,
+                    // colore
+                    color: Color.fromARGB(255, 0, 0, 0),
+                  )
+                ]
+              ),
             ),
             Text(
               '$_counter',
