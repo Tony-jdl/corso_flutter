@@ -82,8 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor:
-            Colors.redAccent, //Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.redAccent,
+        //Theme.of(context).colorScheme.inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
@@ -99,12 +99,10 @@ class _MyHomePageState extends State<MyHomePage> {
         foregroundColor: Colors.white,
         systemOverlayStyle: SystemUiOverlayStyle.light,
         // Ombreggiatura
-        elevation: 50,
+        elevation: 10,
         shadowColor: Colors.grey,
         // Altezza Navbar
         toolbarHeight: 60,
-        // Opacità testo
-        toolbarOpacity: 0.5,
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -127,32 +125,79 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
-              style: TextStyle(
-                fontFamily: 'Climate_Crisis',
-                // Colore del testo
-                color: Colors.redAccent,
-                // sfondo del font
-                backgroundColor: Colors.blueGrey,
-                // Spessore del font
-                fontWeight: FontWeight.w400,
-                  // Altezza font
-                  fontSize: 30,
-                // Ombre
-                shadows: [
-                  Shadow(
-                    // Spostamento dell'ombra
-                    offset: Offset(10.0, 10.0),
-                    // sfocatura
-                    blurRadius: 3.0,
-                    // colore
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  )
-                ]
-              ),
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            // bottoni col testo
+            const Text(''),
+            const Text('Lista di bottoni',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+            TextButton(
+                onPressed: () {
+                  print('TextButton premuto');
+                },
+                child: const Text('Bottone (TextButton)')),
+            ElevatedButton(
+                onPressed: () {
+                  print('ElevatedButton premuto');
+                },
+                child: const Text('Bottone (ElevatedButton)')),
+            OutlinedButton(
+                onPressed: () {
+                  print('OutlinedButton premuto');
+                },
+                child: const Text('Bottone (OutlinedButton)')),
+            // bottoni con le icone
+            const Text(''),
+            const Text(
+              'Lista bottoni con icona',
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+            ),
+            TextButton.icon(
+              onPressed: () {},
+              icon: Icon(Icons.access_time_filled),
+              label: const Text('Bottone (TextButton.icon)'),
+            ),
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: Icon(Icons.access_time_filled),
+              label: const Text('Bottone (ElevatedButton.icon)'),
+              // metodo vecchio per lo stile diei bottoni
+              /*style: ButtonStyle(
+                  overlayColor: WidgetStateProperty.resolveWith((state) {
+                if (state.contains(WidgetState.focused)) {
+                  return Colors.red;
+                }
+                if (state.contains(WidgetState.hovered)) {
+                  return Colors.blueGrey;
+                }
+                if (state.contains(WidgetState.pressed)) {
+                  return Colors.yellow;
+                }
+                return null;
+              })),*/
+               // metodo più recente
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.red,
+                backgroundColor: Colors.blue,
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10) //padding nel bottone
+              ),
+            ),
+            OutlinedButton.icon(
+              onPressed: () {},
+              label: const Text('Bottone (OutlinedButton)'),
+              icon: Icon(Icons.access_time_filled),
+              style: ButtonStyle(
+                  foregroundColor: WidgetStateProperty.all(Colors
+                      .green) // Sostituisce il MaterialStateProperty per la gestione del colore dei font all'interno dei bottoni
+                  ),
+            ),
+            const Icon(
+              Icons.ac_unit_outlined,
+              size: 30,
+              color: Colors.purple,
             ),
           ],
         ),
