@@ -123,6 +123,30 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // metodo 1 - immagini locali
+            // Image(image: AssetImage('images/image01.jpg')),
+            // metodo 2 - immagini locali
+            Image.asset(
+                'images/image01.jpg',
+                width: 300,
+                height: 300,
+                color: Colors.red,
+                colorBlendMode: BlendMode.exclusion,
+            ),
+            // immagine dal web
+            // Image.network('https://images.unsplash.com/photo-1731929464035-1ba6df40565f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+            // wrappato widget immagine in container
+            Container(
+              width: 200,
+              height: 300,
+              child: Image.asset(
+                'images/image01.jpg',
+                color: Colors.red,
+                colorBlendMode: BlendMode.exclusion,
+                fit: BoxFit.cover, // tipo di box che contiene l'immagine
+                alignment: Alignment.bottomCenter, // allineamento dell'immagine nel box
+              ),
+            ),
             const Text(
               'You have pushed the button this many times:',
             ),
