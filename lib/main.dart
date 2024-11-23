@@ -62,45 +62,31 @@ class _MyHomePageState extends State<MyHomePage> {
         // Altezza Navbar
         toolbarHeight: 60,
       ),
-      body: Container(
-        color: Colors.blue,
-        //child: Row(
-          // textDirection: TextDirection.ltr, // direziona il contenuto da left a right o viceversa
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              color: Colors.blueGrey,
-              child: const Column(
-                // dimensione della colonna, si può adattare al contenuto
-                // mainAxisSize: MainAxisSize.min,
-                // mainAxisSize: MainAxisSize.max,
-                // definisce l'allineamento del contenuto secondo i criteri classici
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.timeline),
-                  Icon(Icons.ac_unit_outlined),
-                  Icon(Icons.account_balance),
-              ],
-              ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          color: Colors.orange,
+          padding: const EdgeInsets.all(100),
+          margin: const EdgeInsets.all(20),
+          height: 300,
+          width: 300,
+          alignment: Alignment.center,
+          //transform: Matrix4.rotationZ(0.2),
+          child: const Text('Ciao'),
+          /*decoration: BoxDecoration(
+            color: Colors.orange,
+            border: Border.all(
+                width: 10,
+                color: Colors.black
             ),
-            Container(
-              color: Colors.blueGrey,
-              child: const Column(
-                // dimensione della colonna, si può adattare al contenuto
-                // mainAxisSize: MainAxisSize.min,
-                // mainAxisSize: MainAxisSize.max,
-                // definisce l'allineamento del contenuto secondo i criteri classici
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.timeline),
-                  Icon(Icons.ac_unit_outlined),
-                  Icon(Icons.account_balance),
-                ],
-              ),
-            ),
-          ]
-        )
+          ),*/
+          /*child: Container(
+            color: Colors.green,
+            width: 200,
+            height: 200,
+            child: const Text('Ciao'),
+          ),*/
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
