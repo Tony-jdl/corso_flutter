@@ -14,21 +14,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -40,14 +25,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -56,36 +33,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
         backgroundColor: Colors.redAccent,
-        //Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
         centerTitle: true,
         // Lista di icone
@@ -104,127 +62,45 @@ class _MyHomePageState extends State<MyHomePage> {
         // Altezza Navbar
         toolbarHeight: 60,
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            // metodo 1 - immagini locali
-            // Image(image: AssetImage('images/image01.jpg')),
-            // metodo 2 - immagini locali
-            Image.asset(
-                'images/image01.jpg',
-                width: 300,
-                height: 300,
-                color: Colors.red,
-                colorBlendMode: BlendMode.exclusion,
-            ),
-            // immagine dal web
-            // Image.network('https://images.unsplash.com/photo-1731929464035-1ba6df40565f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
-            // wrappato widget immagine in container
+      body: Container(
+        color: Colors.blue,
+        //child: Row(
+          // textDirection: TextDirection.ltr, // direziona il contenuto da left a right o viceversa
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
             Container(
-              width: 200,
-              height: 300,
-              child: Image.asset(
-                'images/image01.jpg',
-                color: Colors.red,
-                colorBlendMode: BlendMode.exclusion,
-                fit: BoxFit.cover, // tipo di box che contiene l'immagine
-                alignment: Alignment.bottomCenter, // allineamento dell'immagine nel box
+              color: Colors.blueGrey,
+              child: const Column(
+                // dimensione della colonna, si può adattare al contenuto
+                // mainAxisSize: MainAxisSize.min,
+                // mainAxisSize: MainAxisSize.max,
+                // definisce l'allineamento del contenuto secondo i criteri classici
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.timeline),
+                  Icon(Icons.ac_unit_outlined),
+                  Icon(Icons.account_balance),
+              ],
               ),
             ),
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            // bottoni col testo
-            const Text(''),
-            const Text('Lista di bottoni',
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-            TextButton(
-                onPressed: () {
-                  print('TextButton premuto');
-                },
-                child: const Text('Bottone (TextButton)')),
-            ElevatedButton(
-                onPressed: () {
-                  print('ElevatedButton premuto');
-                },
-                child: const Text('Bottone (ElevatedButton)')),
-            OutlinedButton(
-                onPressed: () {
-                  print('OutlinedButton premuto');
-                },
-                child: const Text('Bottone (OutlinedButton)')),
-            // bottoni con le icone
-            const Text(''),
-            const Text(
-              'Lista bottoni con icona',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-            ),
-            TextButton.icon(
-              onPressed: () {},
-              icon: Icon(Icons.access_time_filled),
-              label: const Text('Bottone (TextButton.icon)'),
-            ),
-            ElevatedButton.icon(
-              onPressed: () {},
-              icon: Icon(Icons.access_time_filled),
-              label: const Text('Bottone (ElevatedButton.icon)'),
-              // metodo vecchio per lo stile diei bottoni
-              /*style: ButtonStyle(
-                  overlayColor: WidgetStateProperty.resolveWith((state) {
-                if (state.contains(WidgetState.focused)) {
-                  return Colors.red;
-                }
-                if (state.contains(WidgetState.hovered)) {
-                  return Colors.blueGrey;
-                }
-                if (state.contains(WidgetState.pressed)) {
-                  return Colors.yellow;
-                }
-                return null;
-              })),*/
-               // metodo più recente
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.red,
-                backgroundColor: Colors.blue,
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10) //padding nel bottone
+            Container(
+              color: Colors.blueGrey,
+              child: const Column(
+                // dimensione della colonna, si può adattare al contenuto
+                // mainAxisSize: MainAxisSize.min,
+                // mainAxisSize: MainAxisSize.max,
+                // definisce l'allineamento del contenuto secondo i criteri classici
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.timeline),
+                  Icon(Icons.ac_unit_outlined),
+                  Icon(Icons.account_balance),
+                ],
               ),
             ),
-            OutlinedButton.icon(
-              onPressed: () {},
-              label: const Text('Bottone (OutlinedButton)'),
-              icon: Icon(Icons.access_time_filled),
-              style: ButtonStyle(
-                  foregroundColor: WidgetStateProperty.all(Colors
-                      .green) // Sostituisce il MaterialStateProperty per la gestione del colore dei font all'interno dei bottoni
-                  ),
-            ),
-            const Icon(
-              Icons.ac_unit_outlined,
-              size: 30,
-              color: Colors.purple,
-            ),
-          ],
-        ),
+          ]
+        )
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
