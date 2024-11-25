@@ -62,31 +62,33 @@ class _MyHomePageState extends State<MyHomePage> {
         // Altezza Navbar
         toolbarHeight: 60,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          color: Colors.orange,
-          padding: const EdgeInsets.all(100),
-          margin: const EdgeInsets.all(20),
-          height: 300,
-          width: 300,
-          alignment: Alignment.center,
-          //transform: Matrix4.rotationZ(0.2),
-          child: const Text('Ciao'),
-          /*decoration: BoxDecoration(
-            color: Colors.orange,
-            border: Border.all(
-                width: 10,
-                color: Colors.black
-            ),
+      body: Column(
+        children: [
+          // Box con limiti specifici
+          ConstrainedBox(
+            //constraints: BoxConstraints(minHeight: 50, minWidth: 50), // determina il le dimensioni minime
+            constraints: BoxConstraints(maxHeight: 50, maxWidth: 50), // determina le dimensioni massime
+            child: Container(height: 500,color: Colors.red,),
+          ),
+          // SizedBox usata per cose molto semplici
+          /*const SizedBox(
+            height: 100,
+            width: double.infinity,
           ),*/
-          /*child: Container(
-            color: Colors.green,
-            width: 200,
+          // Expanded si espando occupando tutto la spazio disponibile
+          //Expanded(child: Text('Ciao')),
+          /*Expanded(
+              child: Container(
+                color: Colors.green,
+                alignment: Alignment.bottomCenter,
+                child: const Text('ciao'),
+          )),*/
+          // Container usato per cose più complesse e versatili
+          Container(
             height: 200,
-            child: const Text('Ciao'),
-          ),*/
-        ),
+            color: Colors.orange,
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
