@@ -87,69 +87,33 @@ class _MyHomePageState extends State<MyHomePage> {
         // Altezza Navbar
         toolbarHeight: 60,
       ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        crossAxisSpacing: 8,
-        mainAxisSpacing: 8,
-        children: [
-          for (var i in listaMap.keys)
-            GridTile(
-                header: Container(
-                  color: Colors.white38,
-                  child: const Text('Ciao'),
+      body: SizedBox(
+        height: 420,
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20)
+          ),
+          //color: Colors.orange,
+          //shadowColor: Colors.red,
+          //elevation: 50,
+          margin: const EdgeInsets.all(20),
+          clipBehavior: Clip.hardEdge, // fa clip dell'immagina (taglia il contenuto in base alla card)
+          child: Column(
+            children: [
+              Image.asset('images/image01.jpg'),
+              const Text('Del banale testo'),
+              const ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: NetworkImage("https://i.pravatar.cc/150?img=68"),
                 ),
-                footer: Container(
-                  padding: const EdgeInsets.all(8),
-                  alignment: Alignment.bottomRight,
-                  child: const Icon(
-                    Icons.favorite,
-                    color: Colors.white,
-                  ),
-                ),
-                child: Image.network(
-                  src,
-                  fit: BoxFit.cover,
-                ))
-        ],
+                title: Text('Nome Del Tizio'),
+                subtitle: Text('Descrizione del tizio'),
+                trailing: Icon(Icons.favorite),
+              )
+            ],
+          ),
+        ),
       ),
-      // Padding(
-      //   padding: const EdgeInsets.all(8.0),
-      //   child: ListView(
-      //     children: [
-      //       for (var i in listaMap.keys)
-      //         Padding(
-      //           padding: const EdgeInsets.all(8.0),
-      //           child: ListTile(
-      //             tileColor: Colors.grey,
-      //             trailing: const Icon(Icons.drag_handle),
-      //             leading: CircleAvatar(
-      //               radius: 30,
-      //               backgroundImage: NetworkImage('${listaMap[i]}'),
-      //             ),
-      //             title: const Text('Luca Rossi'),
-      //             subtitle: const Text('Ciao sono sempre io'),
-      //           ),
-      //         ),
-      // Container(
-      //   margin: const EdgeInsets.only(bottom: 8),
-      //   height: 100,
-      //   color: Colors.grey,
-      //   alignment: Alignment.center,
-      //   child: Row(
-      //     children: [
-      //       Image.network('${listaMap[i]}'),
-      //       const Column(
-      //         children: [
-      //           Text('Luca Rossi'),
-      //           Text('Ciao sono un testo di prova')
-      //         ]
-      //       ),
-      //     ],
-      //   ),
-      // )
-      // ],
-      // ),
-      // ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
