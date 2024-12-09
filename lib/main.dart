@@ -33,6 +33,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<int> lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+  // fonte di questi link: https://pravatar.cc/
   Map<int, String> listaMap = {
     1: 'https://i.pravatar.cc/150?img=12',
     2: 'https://i.pravatar.cc/150?img=24',
@@ -87,32 +88,40 @@ class _MyHomePageState extends State<MyHomePage> {
         // Altezza Navbar
         toolbarHeight: 60,
       ),
-      body: SizedBox(
-        height: 420,
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20)
+      body: DecoratedBox(
+          decoration: const BoxDecoration(
+            color: Colors.red,
+            shape: BoxShape.circle,
+            backgroundBlendMode: BlendMode.difference,
+            gradient: LinearGradient(
+                colors: [
+                  Colors.orange,
+                  Colors.green
+                ]
+            )
+            // image: DecorationImage(image: AssetImage('images/image01.jpg'))
           ),
-          //color: Colors.orange,
-          //shadowColor: Colors.red,
-          //elevation: 50,
-          margin: const EdgeInsets.all(20),
-          clipBehavior: Clip.hardEdge, // fa clip dell'immagina (taglia il contenuto in base alla card)
-          child: Column(
-            children: [
-              Image.asset('images/image01.jpg'),
-              const Text('Del banale testo'),
-              const ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: NetworkImage("https://i.pravatar.cc/150?img=68"),
-                ),
-                title: Text('Nome Del Tizio'),
-                subtitle: Text('Descrizione del tizio'),
-                trailing: Icon(Icons.favorite),
-              )
-            ],
-          ),
+
+      // ClipRRect(
+      //   borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
+        // ClipOval( // ovalizza il widget
+
+        // Transform
+          // .scale(
+          //    scale: 0.7,
+
+          // .rotate( // ruota il widget
+          //   angle: 35,
+        child: Container(
+          height: 300,
+          // color: Colors.blue,
         ),
+      // Opacity(
+      //   opacity: 0.2,
+      //   child: Container(
+      //     height: 300,
+      //     color: Colors.blue,
+      //   ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
