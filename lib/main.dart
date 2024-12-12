@@ -61,6 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   String src = 'https://i.pravatar.cc/150?img=68';
 
+  String testo = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
   void _incrementCounter() {
     setState(() {});
   }
@@ -88,40 +90,50 @@ class _MyHomePageState extends State<MyHomePage> {
         // Altezza Navbar
         toolbarHeight: 60,
       ),
-      body: DecoratedBox(
-          decoration: const BoxDecoration(
-            color: Colors.red,
-            shape: BoxShape.circle,
-            backgroundBlendMode: BlendMode.difference,
-            gradient: LinearGradient(
-                colors: [
-                  Colors.orange,
-                  Colors.green
-                ]
-            )
-            // image: DecorationImage(image: AssetImage('images/image01.jpg'))
+      body: CustomScrollView( // Gli slivers si trovano dentro una CustoScrollView
+        slivers: [
+          const SliverAppBar(
+            // floating: true,  // rende visibile la bar anche dal fondo
+            // pinned: true,  // pinna la bar
+            flexibleSpace: FlexibleSpaceBar(
+              expandedTitleScale: 120,
+              title: Text('StoCazzo'),
+            ),
           ),
-
-      // ClipRRect(
-      //   borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
-        // ClipOval( // ovalizza il widget
-
-        // Transform
-          // .scale(
-          //    scale: 0.7,
-
-          // .rotate( // ruota il widget
-          //   angle: 35,
-        child: Container(
-          height: 300,
-          // color: Colors.blue,
-        ),
-      // Opacity(
-      //   opacity: 0.2,
-      //   child: Container(
-      //     height: 300,
-      //     color: Colors.blue,
-      //   ),
+          const SliverToBoxAdapter(
+            child: Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'),
+          ),
+          SliverList(
+              delegate: SliverChildBuilderDelegate(
+                  childCount: 50,
+                  (context, index) {
+                    return ListTile(
+                      trailing: Icon(Icons.add),
+                      title: Text('Ciao $index'),
+                    );
+                  }
+              )
+          ),
+          SliverGrid(
+              delegate: SliverChildBuilderDelegate(
+                childCount: 20,
+                  (context, index) {
+                    return GridTile(
+                      child: Container(
+                        height: 100,
+                        color: Colors.red,
+                        child: Text('$index'),
+                      ),
+                    );
+                  }
+              ),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 8
+              )
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
