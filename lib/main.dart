@@ -1,6 +1,7 @@
 import 'package:corso_flutter/widgets/CardTesto.dart';
 import 'package:corso_flutter/widgets/CardVideo.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,16 +48,14 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
-      body: ListView.builder(
-          itemCount: lista.length,
-          padding: const EdgeInsets.all(10),
-          itemBuilder: (context, index) {
-            if (lista[index] % 2 == 0) {
-              return CardVideo(numero: index);
-            } else {
-              return CardTesto(numero: index);
-            }
-          }),
+      body: Center(
+        child: Text(
+          'Google Fonts',
+          style:
+              // GoogleFonts.aclonica(fontSize: 50, fontWeight: FontWeight.bold), // font statico
+              GoogleFonts.getFont('Aclonica', fontSize: 50), // font dinamico
+        ),
+      ),
     );
   }
 }
