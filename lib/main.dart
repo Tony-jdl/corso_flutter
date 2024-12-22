@@ -1,5 +1,3 @@
-import 'package:corso_flutter/widgets/CardTesto.dart';
-import 'package:corso_flutter/widgets/CardVideo.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -51,9 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Text(
           'Google Fonts',
-          style:
+           style:
               // GoogleFonts.aclonica(fontSize: 50, fontWeight: FontWeight.bold), // font statico
-              GoogleFonts.getFont('Aclonica', fontSize: 50), // font dinamico
+               GoogleFonts.getFont('Aclonica', fontSize: 50), // font dinamico
         ),
       ),
     );
