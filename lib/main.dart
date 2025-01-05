@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+//import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -49,9 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Text(
           'Google Fonts',
-           style:
-              // GoogleFonts.aclonica(fontSize: 50, fontWeight: FontWeight.bold), // font statico
-               GoogleFonts.getFont('Aclonica', fontSize: 50), // font dinamico
+           // style:
+           //    // GoogleFonts.aclonica(fontSize: 50, fontWeight: FontWeight.bold), // font statico
+           //     GoogleFonts.getFont('Aclonica', fontSize: 50), // font dinamico
         ),
       ),
     );
