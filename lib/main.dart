@@ -1,3 +1,6 @@
+import 'package:corso_flutter/RouteGenerator.dart';
+import 'package:corso_flutter/screens/PrimaPagina.dart';
+import 'package:corso_flutter/screens/SecondaPagina.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,62 +10,40 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  static const data = 'data';
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'NotApp',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink),
-        // primarySwatch: Colors.indigo,
-        // textTheme: const TextTheme(
-        //   bodyMedium: TextStyle(
-        //       fontWeight: FontWeight.w400,
-        //       fontSize: 50.0,
-        //       fontStyle: FontStyle.italic,
-        //       color: Colors.pink),
-        // ),
-        // appBarTheme: const AppBarTheme(
-        //   backgroundColor: Colors.teal
-        // ),
-        // scaffoldBackgroundColor: Colors.deepPurpleAccent,
-        // brightness: Brightness.dark
-        // primarySwatch: Colors.indigo, // insieme di colori predefiniti
-        // colorScheme: ColorScheme.fromSwatch(
-        //   primarySwatch: Colors.orange,
-        //   accentColor: Colors.teal,
-        //   backgroundColor: Colors.pinkAccent,
-        // ), // schema colore
       ),
-      // darkTheme: ThemeData.dark(), // temadark
-      home: const MyHomePage(title: 'NotApp'),
+      home: const MyHomePage(),
+      onGenerateRoute: RouteGenerator.generateRoute, // generatore dinamico route
+      // routes: {
+      //   '/prima': (context) => Primapagina(),
+      //   '/seconda': (context) => Secondapagina(data: data),
+      // },
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key});
 
-  final String title;
+  // final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // final lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        centerTitle: true,
-         backgroundColor: Theme.of(context).colorScheme.primary, // in questo modo ovrascrivo il tema applicato sopra in ThemeData()
-      ),
-      body: const Center(
-        child: Text('Google Fonts'),
-      ),
+      body: Primapagina(),
     );
   }
 }
